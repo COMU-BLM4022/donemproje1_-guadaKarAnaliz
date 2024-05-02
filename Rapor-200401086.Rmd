@@ -1,0 +1,44 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+## Q1 : IMS platformunun belirlenmesi
+
+### Platform hakkında
+
+Platformun İsmi: Metabase
+
+Lisansı: Metabase açık kaynak bir yazılımdır ve MIT Lisansı altında yayınlanmıştır, bu da onu ücretsiz olarak kullanılabilir kılar.
+
+Kısa Tarihçe: Metabase, 2015 yılında kurulan bir açık kaynak projedir. Amacı, kullanıcıların veri analizi yapmalarını kolaylaştırmak ve görselleştirmeler oluşturmak için bir araç sağlamaktır. Hızla büyüyen bir topluluğa sahiptir ve sürekli olarak geliştirilmektedir.
+
+### Platformun Kullanıcıya Sunduğu Özellikler:
+
+Veri Görselleştirme: Metabase, grafikler, tablolar ve filtreler gibi çeşitli görselleştirmeler sunar.
+
+Veri Sorgulama: Kullanıcılar SQL bilgisine ihtiyaç duymadan veri sorgulama ve filtreleme yapabilir.
+
+Paylaşım ve İşbirliği: Oluşturulan raporları ve panoları paylaşma ve işbirliği yapma imkanı sağlar.
+
+Veri Bağlama: Farklı veri kaynaklarına bağlanma ve bu verileri birleştirme yeteneği sunar.
+
+Güvenlik: Veri güvenliği için çeşitli yetkilendirme ve erişim kontrolleri sunar.
+
+### Platformun Kullandığı Yazılım, Veritabanı ve Diğer Teknolojiler:
+
+Yazılım: Metabase, Java tabanlı bir yazılımdır ve kullanıcı arayüzü olarak Clojure ve React kullanır.
+
+Veritabanı: Metabase, çeşitli veri kaynaklarına bağlanabilir, bunlar arasında MySQL, PostgreSQL, MongoDB, Google BigQuery gibi veritabanları bulunmaktadır.
+
+Diğer Teknolojiler: Metabase, Docker üzerinde çalışabilir ve çeşitli bulut platformlarıyla entegre olabilir.
+
+### Platform API'si:
+
+Metabase, RESTful API'leri aracılığıyla platforma erişim sağlar. API, veri sorgulama, rapor oluşturma ve güncelleme gibi temel işlevleri destekler. Ayrıca kullanıcı yönetimi ve diğer yönetim görevlerini gerçekleştirmek için de kullanılabilir.
+
+Metabase kullanmayı seçme sebebimiz ise kuruluşumuz açık kaynak yazılımlara ve topluluk destekli projelere öncelik vermektedir. Ayrıca, basit, kullanıcı dostu bir arayüze ve düşük bir öğrenme eğrisine sahip olduğundan dolayı tercihimizi Metabaseden yana kullandık.
+
