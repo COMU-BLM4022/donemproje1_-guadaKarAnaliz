@@ -57,3 +57,8 @@ Sales target - Bu veri seti, her ürün kategorisi için satış hedef tutarın�
 ### İzlenecek Yol
 
 Öncelikle csv formatlı List of Orders ve Order Details isimli tablolarımızı R kodları ile birleştireceğiz. Daha sonra bu birleşmiş tabloyu merged.sqlite ismi ile SQLLİTE veritabanına aktarıyoruz. Gerekli veri temizliğini yapıyoruz. Metabase isimli BI platformumuzu kullanarak merged.sqlite tablomuzdaki verilerin ışığında karı yeterli düzeyde olmayan ürünleri belirleyecek bir grafik oluşturup bu grafiği ve şirketimizin tavsiyeleri sonrasında beklenen kar grafiğini rapora ekleyeceğiz.
+
+## Q3 : İş Tanımı
+
+Kuruluşumuz karlılığı düşük olan ürün gruplarını belirleyip onlar üzerinden satış stratejileri önerisinde bulunan bir kuruluştur. Rutin olarak, e-ticaret firmalarıyla anlaşıp onların satış stratejilerine destekte bulunmak adına yaptıkları satışların verilerini alıp üzerinde çalışıyoruz. Gelir modeli olarak bizim önerdiğimiz planlamadan sonra gerçekleşen fazlalık karın yüzde 10'unu alıyoruz. Firmanın reklam stratejilerini belirleyemediğimiz için bize bağlı olmayan nedenlerle kar oranı azaldığı durumlarda biz de yeterince gelir sağlayamıyoruz. Bizim dışımızdaki bu tarz işleri yapan firmalar sabit fiyatlarla çalıştığından dolayı onların kar/zarar oranları yaptıkları işin kalitesine bağlı değil bu yüzden işimizi onlardan daha kaliteli yaptığımızda onlardan daha çok para kazanıyoruz fakat yaptığımız analiz herhangi bir nedenden başarısız olursa gelirimiz de bu doğrultuda etkileniyor.
+
