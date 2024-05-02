@@ -1,0 +1,67 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+## Q1 : IMS platformunun belirlenmesi
+
+### Platform hakkında
+
+Platformun İsmi: Metabase
+
+Lisansı: Metabase açık kaynak bir yazılımdır ve MIT Lisansı altında yayınlanmıştır, bu da onu ücretsiz olarak kullanılabilir kılar.
+
+Kısa Tarihçe: Metabase, 2015 yılında kurulan bir açık kaynak projedir. Amacı, kullanıcıların veri analizi yapmalarını kolaylaştırmak ve görselleştirmeler oluşturmak için bir araç sağlamaktır. Hızla büyüyen bir topluluğa sahiptir ve sürekli olarak geliştirilmektedir.
+
+### Platformun Kullanıcıya Sunduğu Özellikler:
+
+Veri Görselleştirme: Metabase, grafikler, tablolar ve filtreler gibi çeşitli görselleştirmeler sunar.
+
+Veri Sorgulama: Kullanıcılar SQL bilgisine ihtiyaç duymadan veri sorgulama ve filtreleme yapabilir.
+
+Paylaşım ve İşbirliği: Oluşturulan raporları ve panoları paylaşma ve işbirliği yapma imkanı sağlar.
+
+Veri Bağlama: Farklı veri kaynaklarına bağlanma ve bu verileri birleştirme yeteneği sunar.
+
+Güvenlik: Veri güvenliği için çeşitli yetkilendirme ve erişim kontrolleri sunar.
+
+### Platformun Kullandığı Yazılım, Veritabanı ve Diğer Teknolojiler:
+
+Yazılım: Metabase, Java tabanlı bir yazılımdır ve kullanıcı arayüzü olarak Clojure ve React kullanır.
+
+Veritabanı: Metabase, çeşitli veri kaynaklarına bağlanabilir, bunlar arasında MySQL, PostgreSQL, MongoDB, Google BigQuery gibi veritabanları bulunmaktadır.
+
+Diğer Teknolojiler: Metabase, Docker üzerinde çalışabilir ve çeşitli bulut platformlarıyla entegre olabilir.
+
+### Platform API'si:
+
+Metabase, RESTful API'leri aracılığıyla platforma erişim sağlar. API, veri sorgulama, rapor oluşturma ve güncelleme gibi temel işlevleri destekler. Ayrıca kullanıcı yönetimi ve diğer yönetim görevlerini gerçekleştirmek için de kullanılabilir.
+
+Metabase kullanmayı seçme sebebimiz ise kuruluşumuz açık kaynak yazılımlara ve topluluk destekli projelere öncelik vermektedir. Ayrıca, basit, kullanıcı dostu bir arayüze ve düşük bir öğrenme eğrisine sahip olduğundan dolayı tercihimizi Metabaseden yana kullandık.
+
+## Q2 : Dataset Tanımı
+
+Veri seti adresi: <https://www.kaggle.com/datasets/benroshan/ecommerce-data?select=Order+Details.csv>
+
+Hindistan'dan bir e-ticaret satış veri setimiz var ve toplam 88.23 kB boyutunda 3 CSV dosyasını içeriyor. - List of Orders, Order details, Sales target. Hintli birisinin üniversiteden aldığı veri kümesi, Orijinal yazarı bilinmiyor.
+
+İçeriği: List of Orders - Bu veri seti, satın alma bilgilerini içerir. Bilgiler, Satın Alma Kimliği, Satın Alma Tarihi ve müşteri detaylarını içerir.
+
+Order Details - Bu veri seti, sipariş kimliği, sipariş fiyatı, miktarı, karı, ürün kategorisi ve alt kategorisi ile birlikte sipariş bilgilerini içerir.
+
+Sales target - Bu veri seti, her ürün kategorisi için satış hedef tutarını ve tarihini içerir.
+
+### İzlenecek Yol
+
+Öncelikle csv formatlı List of Orders ve Order Details isimli tablolarımızı R kodları ile birleştireceğiz. Daha sonra bu birleşmiş tabloyu merged.sqlite ismi ile SQLLİTE veritabanına aktarıyoruz. Gerekli veri temizliğini yapıyoruz. Metabase isimli BI platformumuzu kullanarak merged.sqlite tablomuzdaki verilerin ışığında karı yeterli düzeyde olmayan ürünleri belirleyecek bir grafik oluşturup bu grafiği ve şirketimizin tavsiyeleri sonrasında beklenen kar grafiğini rapora ekleyeceğiz.
+
+## Q3 : İş Tanımı
+
+Kuruluşumuz karlılığı düşük olan ürün gruplarını belirleyip onlar üzerinden satış stratejileri önerisinde bulunan bir kuruluştur. Rutin olarak, e-ticaret firmalarıyla anlaşıp onların satış stratejilerine destekte bulunmak adına yaptıkları satışların verilerini alıp üzerinde çalışıyoruz. Gelir modeli olarak bizim önerdiğimiz planlamadan sonra gerçekleşen fazlalık karın yüzde 10'unu alıyoruz. Firmanın reklam stratejilerini belirleyemediğimiz için bize bağlı olmayan nedenlerle kar oranı azaldığı durumlarda biz de yeterince gelir sağlayamıyoruz. Bizim dışımızdaki bu tarz işleri yapan firmalar sabit fiyatlarla çalıştığından dolayı onların kar/zarar oranları yaptıkları işin kalitesine bağlı değil bu yüzden işimizi onlardan daha kaliteli yaptığımızda onlardan daha çok para kazanıyoruz fakat yaptığımız analiz herhangi bir nedenden başarısız olursa gelirimiz de bu doğrultuda etkileniyor.
+
+## Q4 : İyileştirme (Optimizasyon) Stratejisi
+
+Yazacağımız R koduyla yapacağımız veri analizi sonucunda çalıştığımız firmanın karlılığını arttırmayı düşünüyoruz. Bunu da firmanın tuttuğu satış verileri üzerinde yaptığımız analiz ile ürünlerden kar marjı az veya zararda olanlar üzerine bir satış stratejisi belirleyerek (indirim - zam gibi) planlıyoruz.
