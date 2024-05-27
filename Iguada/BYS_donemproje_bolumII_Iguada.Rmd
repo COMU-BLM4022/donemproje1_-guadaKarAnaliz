@@ -1,0 +1,8 @@
+------------------------------------------------------------------------
+
+title: "Bilgi Yönetim Sistemleri - Bitirme Projesi Rapor : İsmet Koçer 190401010,Uğur Öztürk 200401086,Ahmet Akkoç 200401044,Gamze Kocaman 190401022." output: html_document date: "2024-05-23"
+
+## Q1 : İş probleminin tanımı
+
+Biz, firmaların satış verilerini kullanarak kârlarını artırma amaçlı yöntemler uyguluyoruz ve sonuçları tahmin şeklinde sunuyoruz. Bu süreçte, **Metabase** adlı BYS platformunu kullanıyoruz. Metabase'i tercih etme nedenimiz, gelişmiş görselleştirme yöntemlerine sahip olmasıdır. Bu süreçte, *SQL Server* bağlantı ve verileri görselleştirebilme özelliklerinden yararlanacağız.
+
