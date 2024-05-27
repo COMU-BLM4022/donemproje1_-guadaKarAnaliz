@@ -1,0 +1,18 @@
+------------------------------------------------------------------------
+
+title: "Bilgi Yönetim Sistemleri - Bitirme Projesi Rapor : İsmet Koçer 190401010,Uğur Öztürk 200401086,Ahmet Akkoç 200401044,Gamze Kocaman 190401022." output: html_document date: "2024-05-23"
+
+## Q1 : İş probleminin tanımı
+
+Biz, firmaların satış verilerini kullanarak kârlarını artırma amaçlı yöntemler uyguluyoruz ve sonuçları tahmin şeklinde sunuyoruz. Bu süreçte, **Metabase** adlı BYS platformunu kullanıyoruz. Metabase'i tercih etme nedenimiz, gelişmiş görselleştirme yöntemlerine sahip olmasıdır. Bu süreçte, *SQL Server* bağlantı ve verileri görselleştirebilme özelliklerinden yararlanacağız.
+
+## Q2 : İş problemini çözmede kullanılacak data seti
+
+Veri setimizi Kaggle'den elde ettik.
+
+Hindistan’dan bir e-ticaret satış veri setimiz var ve toplam 88.23 kB boyutunda 2 CSV dosyasını içeriyor: List of Orders, Order Details. Hintli bir öğrencinin üniversitesinden aldığı veri kümesi olup, orijinal yazarı bilinmiyor.
+
+İçeriği:
+
+List of Orders: Bu veri seti, satın alma bilgilerini içerir. Bilgiler arasında Satın Alma Kimliği, Satın Alma Tarihi ve müşteri detayları bulunur. Order Details: Bu veri seti, sipariş kimliği, sipariş fiyatı, miktarı, karı, ürün kategorisi ve alt kategorisi ile birlikte sipariş bilgilerini içerir.
+
