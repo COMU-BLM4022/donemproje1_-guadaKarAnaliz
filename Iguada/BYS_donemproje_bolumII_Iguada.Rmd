@@ -129,4 +129,8 @@ print(toplam_profit)
 
 Kullandığımız BYS platformu Metabase. Metabase'e veri aktarabilmek için bir veritabanı bağlamamız gerekiyordu. Bu yüzden Docker'a bir SQL Server konteynırı kurduk. Bu SQL Server'a veri setimizi yükledik. Metabase'den veri tabanımızın bağlantı bilgilerini kullanarak bağlantı sağlayarak BYS platformumuza veri setimizi ithal etmiş olduk.
 
+## Q5: Yapılması planlanan veri analizi
+
+Öncelikle yapmamız gereken Sub-Category başına kâr-zarar bilgilerine ulaşmak ve bunu sunmaktı. Elimizde bir çok bilgi olmasına rağmen ilk ilgilenmemiz taraf burası. Bunun nedeni bir satıştan zarar etmiş olmak, genelde zarar edeceğiniz anlamına gelmiyor. Lokasyon olarak bazı ürünlerden yüksek, bazı ürünlerden düşük kâr etmelisiniz. Hatta yeri geldiğinde küçük zararları bile kabul etmelisiniz. Bu yüzden bize genel bir yorum lazımdı. Lokasyon analizi yapabilmek adına Sub-Category başına elde ettiğimiz tablonun kaynağını yani orderdetails tablosunu listoforders tablosuyla Order ID sütununu kullanarak joinleyeceğiz. listoforders tablosundan sadece City bilgisi, orderdetails tablosundan ise Amount,Profit,Quantity,Sub-Category sütunlarını alacağız. Daha sonra sub-category ve City için gruplayıp Profit sütununu toplatacağız. Bu tablo şirketi değil bizi ilgilendiren tablo olucak. Lokasyon başına toplam kârı çok azsa veya zarardaysa bu lokasyona bir aksiyon almamız gerektiğini anlayacağız. Bu aksiyonlar indirimle satış adedini arttırmak, zaten satışı yüksekse kâr yapmak gibi yöntemler olabilir.
+
 
