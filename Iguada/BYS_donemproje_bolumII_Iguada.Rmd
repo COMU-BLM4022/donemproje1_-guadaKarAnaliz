@@ -125,3 +125,8 @@ print(toplam_profit)
 
 ```
 
+## Q4: Veri setinin BYS platformuna ithali
+
+Kullandığımız BYS platformu Metabase. Metabase'e veri aktarabilmek için bir veritabanı bağlamamız gerekiyordu. Bu yüzden Docker'a bir SQL Server konteynırı kurduk. Bu SQL Server'a veri setimizi yükledik. Metabase'den veri tabanımızın bağlantı bilgilerini kullanarak bağlantı sağlayarak BYS platformumuza veri setimizi ithal etmiş olduk.
+
+
