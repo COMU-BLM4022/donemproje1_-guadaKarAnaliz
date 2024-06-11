@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------
 
-title: "Bilgi Yönetim Sistemleri - Bitirme Projesi Rapor : İsmet Koçer 190401010,Uğur Öztürk 200401086,Ahmet Akkoç 200401044,Gamze Kocaman 190401022." output: html_document date: "2024-05-23"
+title: "Bilgi Yönetim Sistemleri - Bitirme Projesi Rapor : İsmet Koçer 190401010,Uğur Öztürk,Ahmet Akkoç,Gamze Kocaman." output: html_document date: "2024-05-23"
 
 ## Q1 : İş probleminin tanımı
 
@@ -19,6 +19,7 @@ List of Orders: Bu veri seti, satın alma bilgilerini içerir. Bilgiler arasınd
 ## Q3 : Veri seti keşifsel anazalizi
 
 Veri setimizin önemli sütunları: OrderID, Amount, Profit, Quantity. OrderID veri tipi string, geri kalanlar float veri tipindedir. List of orders tablosunda boş satırlar mevcuttur. Bu satırların temizlenmesi gerekmektedir. Tablonun sonunda 60 satır boş veri bulunmaktadır. Tablonun genelinde tekrar eden böyle bir durum yoktur.
+
 
 #### Boş satırların silinmiş hali
 
@@ -79,7 +80,7 @@ gruplanmis_profit
 #library(htmlwidgets)
 
 #metabase_iframe <- '<iframe
-#    src="http://localhost:3000/public/question/53823ca0-b248-4690-8515-fff458f160d7"
+#    src="http://localhost:3000/public/question/ecfb45ad-400a-496d-8728-4bee203df452"
 #    frameborder="0"
 #    width="800"
 #    height="600"
@@ -136,3 +137,81 @@ Kullandığımız BYS platformu Metabase. Metabase'e veri aktarabilmek için bir
 ## Q6 : Çalışan platformun gösterildiği sesli anlatımlı video
 
 <https://youtu.be/l6SWaeMexD8>
+
+
+# Final 
+
+
+## İşlemlerimiz sonrası şirketin tahmini satış verileri
+```{r, echo = FALSE}
+#Kârı negatif olan yani zararda olan ürünlerde yapılan işlemler(pazarlama,reklam,pazar analizi) sonrası %20 artış görüleceği varsayılmıştır. Zararda olmayan fakat kârı az olan ürünlerde ise satış adetinin %20 artacağı varsayılmıştır.
+
+orderdetails2 <- orderdetails1
+orderdetails2$Profit <- ifelse(orderdetails2$Profit < 0, orderdetails2$Profit * 0.8, orderdetails2$Profit)
+condition <- orderdetails2$Profit > 0 & orderdetails2$Profit < 2300
+profit_per_quantity <- orderdetails2$Profit / orderdetails2$Quantity
+new_quantity <- ceiling(orderdetails2$Quantity * 1.2)
+new_profit <- profit_per_quantity * new_quantity
+orderdetails2$Profit[condition] <- new_profit[condition]
+orderdetails2$Quantity[condition] <- new_quantity[condition]
+orderdetails2$Profit <- ceiling(orderdetails2$Profit)
+
+#Metabase'e aktarım için sql server'a tablo aktarılmıştır. Daha sonra paylaşım yapabilmek adına sqlite olarak proje içindeki database.sqlite veritabanına yazılmıştır.
+#con <- dbConnect(odbc(),
+
+#                 driver = "{ODBC Driver 17 for SQL Server}",
+#                 server = "localhost",
+#                 database = "master",
+#                 uid = "sa",
+#                 pwd = "n123aSd567ytu*",
+#                 port = 1433)
+#dbWriteTable(con, "orderdetails2", orderdetails2, overwrite = TRUE)
+#litecon <- dbConnect(RSQLite::SQLite(), "inst/extdata/database.sqlite")
+#dbWriteTable(litecon, "orderdetails2", orderdetails2, overwrite = TRUE)
+#DBI::dbDisconnect(litecon)
+#DBI::dbDisconnect(con)
+
+#library(htmltools)
+#library(htmlwidgets)
+
+#Verisetinin ham halinde olduğu gibi aşağıdaki kodlarla metabase'den analizlerimiz sonrası oluşan grafiği direkt HTML olarak alabiliyoruz. Fakat knit'lediğimizde görüntüde sorun çıktığı için RStudio'da html olarak gelen veriyi direkt sağ altında çıkan butondan png olarak indirip projenin içine attık.
+
+#metabase_iframe <- '<iframe
+#    src="http://localhost:3000/public/question/adccaa43-23eb-4259-9fc2-3aa3a8a8f62f"
+#    frameborder="0"
+#    width="1080"
+#    height="600"
+#    allowtransparency
+#></iframe>'
+
+#widget <- HTML(as.character(HTML(metabase_iframe)))
+#widget
+
+
+knitr::include_graphics("inst/extdata/2.png")
+```
+
+```{r, echo = FALSE}
+gruplanmis_profit2 <- orderdetails2 %>%
+                       group_by(`Sub-Category`) %>%
+                       summarize(Toplam_Profit = sum(Profit))
+```
+
+### İşlemler sonrası Sub-Category başına beklenen kâr-zararı buluyoruz.
+```{r}
+gruplanmis_profit2
+```
+
+### Şirketin işlemlerimiz sonrası beklenen toplam kârı
+
+```{r, echo = FALSE}
+library(dplyr)
+
+toplam_profit2 <- sum(orderdetails2$Profit)
+
+print(toplam_profit2)
+
+
+```
+
+Yapılan işlemler sonrası şirkette beklenen kâr oranlarındaki değişim yukarıda gösterilmiştir.
