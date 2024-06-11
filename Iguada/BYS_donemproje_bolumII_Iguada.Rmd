@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------
 
-title: "Bilgi Yönetim Sistemleri - Bitirme Projesi Rapor : İsmet Koçer 190401010,Uğur Öztürk,Ahmet Akkoç,Gamze Kocaman." output: html_document date: "2024-05-23"
+title: "Bilgi Yönetim Sistemleri - Bitirme Projesi Rapor : İsmet Koçer 190401010,Uğur Öztürk 200401086,Ahmet Akkoç 200401044,Gamze Kocaman 190401022." output: html_document date: "2024-05-23"
 
 ## Q1 : İş probleminin tanımı
 
